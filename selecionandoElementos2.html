@@ -5,7 +5,7 @@
     <meta charset='UTF-8'>
     <title>Selecionando Elementos #02</title>
     <link rel='stylesheet' href='css/estilo.css'>
-    <script src='js/jquery.js'></script>
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
     <style>
         body {
             display: grid;
@@ -81,6 +81,26 @@
         <p>Cod3r Ensino</p>
     </footer>
     <script>
-        // ...
+        const comBorda = { 'border': 'solid 8px orange'}
+        const semBorda = { 'border': 'none'}
+
+        $('a[href="#link3"]').parent().css(comBorda).css(semBorda)
+
+        $('li:last').prev().css(comBorda).css(semBorda)
+        $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda)
+        
+        $('a[href="#link1"]').parents().css(comBorda).css(semBorda)
+        $('a[href="#link1"]').parentsUntil($('aside')).css(comBorda).css(semBorda)
+
+        $('main').children().css(comBorda).css(semBorda) // só seleciona o filhos diretos
+
+        $('body').find('a').css(comBorda).css(semBorda) // procura o elemento a independente de ser filho direto
+
+        const elementoDOM = document.getElementsByClassName('menu')
+        $(elementoDOM).css(comBorda).css(semBorda)
+
+        $('main').children().each((index, element) => $(element).css(comBorda)) // element é um elemento da DOM, não um objeto jQuery
+
+        $('li').each((index, element) => $(element).css(comBorda))
     </script>
 </body>
