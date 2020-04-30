@@ -5,7 +5,7 @@
     <meta charset='UTF-8'>
     <title>Animação #01</title>
     <link rel='stylesheet' href='css/estilo.css'>
-    <script src='js/jquery.js'></script>
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
     <style>
         div {
             text-align: center;
@@ -23,6 +23,16 @@
     <div id='animar'>Animar!</div>
 
     <script>        
-        // ...
+        $(function () {
+            $('button').click(e => {
+                const t = 500
+                // $('#animar').hide(t).show(t)
+                $('#animar').toggle(t).toggle(t)
+                // $('#animar').fadeOut(t).fadeIn(t)
+                $('#animar').fadeToggle(t).fadeToggle(t)
+                // $('#animar').slideUp(t).slideDown(t)
+                $('#animar').slideToggle(t).slideToggle(t)
+            })
+        })     
     </script>
 </body>
